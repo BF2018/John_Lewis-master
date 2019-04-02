@@ -75,7 +75,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeAdapterVie
 
         void bind(Product product){
 
-            productId.setText("Product id " + product.getProductId());
+            productId.setText("Id " + product.getProductId());
             productTitle.setText(product.getTitle());
 
             priceNow.setText(product.getPrice().getPriceLable());
