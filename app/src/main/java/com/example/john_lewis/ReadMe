@@ -1,0 +1,10 @@
+    Possible Improvements if given more time
+
+1. Use Pagination library from Architecture Components to handle pagination
+2. Separate layouts for phones and tablets - Master Detail Flow
+3. *More unit and instrumented tests
+4. Add a searching query feature in the HomeActivity
+5. expand the application to repository pattern with data repository
+6. add a feature to show progress when data is loading and swipe to refresh effect
+7. ui flow should be improved for better user experience
+8. 5. Animations - Shared Element Transitions for navigating activities and other subtle animations taking advantage of API 21+
