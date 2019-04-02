@@ -121,7 +121,7 @@ public class Price {
         if (nowPrice instanceof String) {
             finalNow = Double.valueOf(String.valueOf(nowPrice));
             finalNowPrice = Integer.valueOf(finalNow.intValue());
-        } else {
+        } else if (nowPrice instanceof LinkedTreeMap) {
             finalNow = Double.valueOf(((LinkedTreeMap) nowPrice).get("to").toString());
             finalNowPrice = Integer.valueOf(finalNow.intValue());
 

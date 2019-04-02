@@ -14,7 +14,6 @@ import javax.inject.Inject;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Predicate;
 import io.reactivex.schedulers.Schedulers;
 
 public class HomePresenter implements HomeContract.HomePresenter {
@@ -37,9 +36,7 @@ public class HomePresenter implements HomeContract.HomePresenter {
         disposable.add(service.getListOfProducts(Constants.KEY)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(products -> {
-                    filterData(products);
-                }, this::onError));
+                .subscribe(products -> HomePresenter.this.filterData(products), this::onError));
     }
 
 

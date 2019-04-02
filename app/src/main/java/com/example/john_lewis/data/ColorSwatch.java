@@ -1,12 +1,9 @@
 package com.example.john_lewis.data;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ColorSwatch implements Parcelable {
+public class ColorSwatch {
     @SerializedName("color")
     @Expose
     private String color;
@@ -26,27 +23,6 @@ public class ColorSwatch implements Parcelable {
     @Expose
     private String skuId;
 
-    protected ColorSwatch(Parcel in) {
-        color = in.readString();
-        basicColor = in.readString();
-        colorSwatchUrl = in.readString();
-        imageUrl = in.readString();
-        byte tmpIsAvailable = in.readByte();
-        isAvailable = tmpIsAvailable == 0 ? null : tmpIsAvailable == 1;
-        skuId = in.readString();
-    }
-
-    public static final Creator<ColorSwatch> CREATOR = new Creator<ColorSwatch>() {
-        @Override
-        public ColorSwatch createFromParcel(Parcel in) {
-            return new ColorSwatch(in);
-        }
-
-        @Override
-        public ColorSwatch[] newArray(int size) {
-            return new ColorSwatch[size];
-        }
-    };
 
     public String getColor() {
         return color;
@@ -96,18 +72,5 @@ public class ColorSwatch implements Parcelable {
         this.skuId = skuId;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(color);
-        dest.writeString(basicColor);
-        dest.writeString(colorSwatchUrl);
-        dest.writeString(imageUrl);
-        dest.writeByte((byte) (isAvailable == null ? 0 : isAvailable ? 1 : 2));
-        dest.writeString(skuId);
-    }
 }

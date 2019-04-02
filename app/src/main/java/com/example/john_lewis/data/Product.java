@@ -1,14 +1,11 @@
 package com.example.john_lewis.data;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Product implements Parcelable {
+public class Product {
     @SerializedName("productId")
     @Expose
     private String productId;
@@ -39,38 +36,6 @@ public class Product implements Parcelable {
     @SerializedName("colorSwatches")
     @Expose
     private List<ColorSwatch> colorSwatches = null;
-
-    protected Product(Parcel in) {
-        productId = in.readString();
-        type = in.readString();
-        title = in.readString();
-        code = in.readString();
-        if (in.readByte() == 0) {
-            averageRating = null;
-        } else {
-            averageRating = in.readDouble();
-        }
-        if (in.readByte() == 0) {
-            reviews = null;
-        } else {
-            reviews = in.readInt();
-        }
-        image = in.readString();
-        defaultSkuId = in.readString();
-        colorSwatches = in.createTypedArrayList(ColorSwatch.CREATOR);
-    }
-
-    public static final Creator<Product> CREATOR = new Creator<Product>() {
-        @Override
-        public Product createFromParcel(Parcel in) {
-            return new Product(in);
-        }
-
-        @Override
-        public Product[] newArray(int size) {
-            return new Product[size];
-        }
-    };
 
     public String getProductId() {
         return productId;
@@ -150,34 +115,5 @@ public class Product implements Parcelable {
 
     public void setColorSwatches(List<ColorSwatch> colorSwatches) {
         this.colorSwatches = colorSwatches;
-    }
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(productId);
-        dest.writeString(type);
-        dest.writeString(title);
-        dest.writeString(code);
-        if (averageRating == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeDouble(averageRating);
-        }
-        if (reviews == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeInt(reviews);
-        }
-        dest.writeString(image);
-        dest.writeString(defaultSkuId);
-        dest.writeTypedList(colorSwatches);
     }
 }
