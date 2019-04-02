@@ -5,7 +5,7 @@ import java.util.Map;
 
 import io.reactivex.annotations.Nullable;
 
-public class ColorConvertor {
+public class ColorConverter {
 
     private Map<String, String> colorMap = new HashMap<>();
 
@@ -14,7 +14,7 @@ public class ColorConvertor {
 
     String color;
 
-    public ColorConvertor(@Nullable String color) {
+    public ColorConverter(@Nullable String color) {
         this.color = color;
         colorMap.put("black", "000000");
         colorMap.put("white", "FFFFFF");
@@ -24,7 +24,7 @@ public class ColorConvertor {
         colorMap.put("yellow", "FFFF00");
         colorMap.put("magenta", "8B008B");
         colorMap.put("dark grey", "A9A9A9");
-        colorMap.put("gray", "808080");
+        colorMap.put("grey", "808080");
         colorMap.put("green", "008000");
         colorMap.put("burgundy", "8B0000");
         colorMap.put("dark teal", "008080");
@@ -32,6 +32,7 @@ public class ColorConvertor {
         colorMap.put("navy", "000080");
         colorMap.put("berry", "800080");
         colorMap.put("dark mauve", "4B0082");
+        colorMap.put("purple", "800080");
 
         defaultColor = "#FFE4B5";
 

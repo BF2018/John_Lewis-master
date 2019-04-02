@@ -1,5 +1,6 @@
 package com.example.john_lewis.ui.home.adapter;
 
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.john_lewis.R;
-import com.example.john_lewis.common.ColorConvertor;
+import com.example.john_lewis.common.ColorConverter;
 import com.example.john_lewis.data.ColorSwatch;
 
 import java.util.List;
@@ -19,7 +20,7 @@ import butterknife.ButterKnife;
 public class ColorSwatchAdapter extends RecyclerView.Adapter<ColorSwatchAdapter.ColorSwatchViewHolder> {
 
     List<ColorSwatch> colorSwatches;
-    private ColorConvertor colorConvertor;
+    private ColorConverter colorConvertor;
 
 
     public ColorSwatchAdapter(List<ColorSwatch> colorSwatches) {
@@ -66,8 +67,9 @@ public class ColorSwatchAdapter extends RecyclerView.Adapter<ColorSwatchAdapter.
                 colorPoint.setText(colorSwatch.getColor());
                 skuId.setText(colorSwatch.getSkuId());
 
-                colorConvertor = new ColorConvertor(colorSwatch.getBasicColor());
+                colorConvertor = new ColorConverter(colorSwatch.getBasicColor());
                 rgbColor.setText(colorConvertor.getColorValue());
+                rgbColor.setBackgroundColor(Color.parseColor(colorConvertor.getColorValue()));
             }
         }
 

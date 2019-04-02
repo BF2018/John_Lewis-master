@@ -153,7 +153,7 @@ public class Price {
             priceLable = "Was " + getCurrency() + filter(getWas()) + ", then " + getCurrency() + filter(getThen1()) + ", now " + getCurrency() + price;
         } else if (getThen2().equals("") && getThen1().equals("")) {
             // showWasNow returns  “Was £x.xx, now £y.yyy”.
-            priceLable = "Was £" + filter(getWas()) + " ,now " + getCurrency() + price;
+            priceLable = "Was " + getCurrency() + filter(getWas()) + ", now " + getCurrency() + price;
 
         } else {
             priceLable = getShowPercDscount();
